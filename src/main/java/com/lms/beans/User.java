@@ -5,9 +5,11 @@ import com.lms.Helpers;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private int id;
     private String name;
     private String email;
     private String password;
+    private String cpassword;
     private String address;
     private byte role;
     private String mobno;
@@ -47,6 +49,14 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public String getCpassword() {
+        return cpassword;
+    }
+
+    public void setCpassword(String cpassword) {
+        this.cpassword = cpassword;
+    }
+
     public byte getRole() {
         return role;
     }
@@ -69,5 +79,13 @@ public class User implements Serializable {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

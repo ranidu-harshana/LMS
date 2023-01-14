@@ -10,7 +10,7 @@
 
 <div class="container">
     <div class="p-4 bg-light mb-4">
-        <h1 class="">Edit Book</h1>
+        <h1 class="">Dashboard</h1>
         <!-- Breadcrumb -->
         <nav class="d-flex">
             <h6 class="mb-0">

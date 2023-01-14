@@ -43,6 +43,13 @@ public class Helpers {
         return null;
     }
 
+    public static boolean checkAdmin(HttpSession session) {
+        if (session.getAttribute("role") != null) {
+            return session.getAttribute("role").equals("admin");
+        }
+        return false;
+    }
+
     public static void setSessionMessage(HttpSession session, Boolean result, String successmessage, String errormessage) {
         String key = "message";
         Helpers.session = session;
