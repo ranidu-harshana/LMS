@@ -38,7 +38,6 @@ public class BookController {
     @RequestMapping(value = "/createbook", method = RequestMethod.GET)
     public String create(Model model) {
         model.addAttribute("isAdmin", Helpers.checkAdmin(session));
-
         //  check if user is logged in and is admin
         String x = checkRole(this.session);
         if (x != null) return x;
