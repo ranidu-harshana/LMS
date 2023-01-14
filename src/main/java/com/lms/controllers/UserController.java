@@ -44,7 +44,6 @@ public class UserController {
     @RequestMapping(value = "/admindashboard", method = RequestMethod.GET)
     public String adminDashboard(Model model) {
         model.addAttribute("isAdmin", Helpers.checkAdmin(session));
-
         return "Users/admin_dashboard";
     }
 
