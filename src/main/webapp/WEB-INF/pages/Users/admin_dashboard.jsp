@@ -23,7 +23,7 @@
         <div class="card-body">
             <div class="row p-4">
                 <div class="col-12 col-md-3">
-                    <a href="/LMS/books">
+                    <a href="/LMS/books" class="text-decoration-none">
                         <div class="card bg-success text-white">
                             <div class="card-body">
                                 <i class="fas fa-book fa-3x"></i><span class="lead fw-bold"> Books</span> <span class="display-6">(03)</span>
@@ -38,13 +38,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-3 mt-3 mt-md-0">
-                    <div class="card bg-warning text-white">
-                        <div class="card-body">
-                            <i class="fas fa-users fa-3x"></i><span class="lead fw-bold"> Users </span> <span class="display-6">(03)</span>
+                <c:if test="${isAdmin}">
+                    <div class="col-12 col-md-3 mt-3 mt-md-0">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <i class="fas fa-users fa-3x"></i><span class="lead fw-bold"> Users </span> <span class="display-6">(03)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:if>
 <%--                <div class="col-3">--%>
 <%--                    <div class="card">--%>
 <%--                        <div class="card-body">--%>

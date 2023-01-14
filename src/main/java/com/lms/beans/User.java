@@ -9,7 +9,6 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String password;
-    private String cpassword;
     private String address;
     private byte role;
     private String mobno;
@@ -47,14 +46,6 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getCpassword() {
-        return cpassword;
-    }
-
-    public void setCpassword(String cpassword) {
-        this.cpassword = cpassword;
     }
 
     public byte getRole() {

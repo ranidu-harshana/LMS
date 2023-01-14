@@ -36,7 +36,9 @@ public class BookController {
     }
 
     @RequestMapping(value = "/createbook", method = RequestMethod.GET)
-    public String create() {
+    public String create(Model model) {
+        model.addAttribute("isAdmin", Helpers.checkAdmin(session));
+
         //  check if user is logged in and is admin
         String x = checkRole(this.session);
         if (x != null) return x;
@@ -48,6 +50,7 @@ public class BookController {
     public String show(@PathVariable int id, Model model) {
         try {
             Book book = bookDao.findById(id);
+            model.addAttribute("isAdmin", Helpers.checkAdmin(session));
             model.addAttribute("book", book);
             return "Books/view_book";
         } catch (Exception e) {
@@ -74,6 +77,7 @@ public class BookController {
         try {
             Book book = bookDao.findById(id);
             model.addAttribute("book", book);
+            model.addAttribute("isAdmin", Helpers.checkAdmin(session));
             return "Books/edit_book";
         } catch (Exception e) {
             return "redirect:/books";
@@ -81,7 +85,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/updatebook", method = RequestMethod.POST)
-    public String update(@ModelAttribute("book") Book book, Model model) {
+    public String update(@ModelAttribute("book") Book book) {
         // check if user is logged in and is admin
         String x = checkRole(this.session);
         if (x != null) return x;

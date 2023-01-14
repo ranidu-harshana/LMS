@@ -34,22 +34,12 @@
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="password" name="password" class="form-control" required/>
-              <label class="form-label" for="password">Password</label>
-            </div>
-
-            <div class="form-outline mb-4">
-              <input type="password" id="cpassword" name="cpassword" class="form-control" required/>
-              <label class="form-label" for="cpassword">Confirm Password</label>
-            </div>
-
-            <div class="form-outline mb-4">
               <textarea class="form-control" id="address" name="address" required rows="5"></textarea>
               <label class="form-label" for="address">Address</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="number" id="mobno" name="mobno" class="form-control" required/>
+              <input type="text" id="mobno" name="mobno" class="form-control" required/>
               <label class="form-label" for="mobno">Mob No.</label>
             </div>
 

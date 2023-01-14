@@ -26,15 +26,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/LMS/admindashboard">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
-                </li>
+                <c:if test="${isAdmin}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/LMS/users">Users</a>
+                    </li>
+                </c:if>
                 <li class="nav-item">
                     <a class="nav-link" href="/LMS/books">Books</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/LMS/createbook">Add Book</a>
-                </li>
+                <c:if test="${isAdmin}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/LMS/createbook">Add Book</a>
+                    </li>
+                </c:if>
             </ul>
             <!-- Left links -->
         </div>
@@ -43,9 +47,9 @@
         <!-- Right elements -->
         <div class="d-flex align-items-center">
             <!-- Icon -->
-<%--            <a class="link-secondary me-3" href="#">--%>
-<%--                <i class="fas fa-shopping-cart"></i>--%>
-<%--            </a>--%>
+            <span class="text-white me-3" >
+                ${isAdmin == true ? "Admin" : "User"}
+            </span>
 
             <!-- Avatar -->
             <div class="dropdown">
@@ -73,7 +77,7 @@
                         <a class="dropdown-item" href="#">My profile</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="/LMS/changepass">Change Password</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="/LMS/logoutuser" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
