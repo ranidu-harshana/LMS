@@ -1,3 +1,4 @@
+<%@ page import="com.lms.Helpers" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
@@ -49,9 +50,9 @@
                         <td>${book.availableQty}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="actions">
-                                <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#deleteBookModal${book.id}"><i class="fas fa-trash-alt"></i></button>
-                                <a href="/LMS/editbook/${book.id}"><button type="button" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></button></a>
-                                <a href=""><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></button></a>
+                                <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#deleteBookModal${book.id}" ${isAdmin ? "" : "disabled"}><i class="fas fa-trash-alt"></i></button>
+                                <a href="/LMS/editbook/${book.id}"><button type="button" class="btn btn-success btn-sm" ${isAdmin ? "" : "disabled"}><i class="fas fa-edit"></i></button></a>
+                                <a href="/LMS/viewbook/${book.id}"><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></button></a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="deleteBookModal${book.id}" tabindex="-1" aria-labelledby="deleteBookModal${book.id}Label" aria-hidden="true">
                                     <div class="modal-dialog">

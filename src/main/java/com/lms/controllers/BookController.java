@@ -1,5 +1,6 @@
 package com.lms.controllers;
 
+import com.lms.Helpers;
 import com.lms.beans.Book;
 import com.lms.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,9 @@ public class BookController {
 
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public String index(Model model) {
-        //  check if user is logged in and is admin
-        String x = checkRole(this.session);
-        if (x != null) return x;
-
         List<Book> booksList = bookDao.booksList();
         model.addAttribute("booksList", booksList);
+        model.addAttribute("isAdmin", Helpers.checkAdmin(session));
         return "Books/all_books";
     }
 
@@ -44,6 +42,17 @@ public class BookController {
         if (x != null) return x;
 
         return "Books/add_book";
+    }
+
+    @RequestMapping(value = "/viewbook/{id}", method = RequestMethod.GET)
+    public String show(@PathVariable int id, Model model) {
+        try {
+            Book book = bookDao.findById(id);
+            model.addAttribute("book", book);
+            return "Books/view_book";
+        } catch (Exception e) {
+            return "redirect:/books";
+        }
     }
 
     @RequestMapping(value = "/storebook", method = RequestMethod.POST)
