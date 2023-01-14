@@ -11,7 +11,7 @@
 <div class="container">
   <%@include file="../../includes/session_message.jsp"%>
   <div class="p-4 bg-light mb-4">
-    <h1 class="">Register User</h1>
+    <h1 class="">Change Password</h1>
     <!-- Breadcrumb -->
     <nav class="d-flex">
       <h6 class="mb-0">
