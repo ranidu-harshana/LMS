@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.security.auth.login.LoginException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import java.util.List;
@@ -97,5 +98,11 @@ public class UserController {
         model.addAttribute("isAdmin", Helpers.checkAdmin(session));
         setSessionMessage(session, userDao.changePassword(changePassword), "Password Changed successfully", "Password not changed successfully");
         return "Users/change_password";
+    }
+
+    @RequestMapping(value = "/resetpassword", method = RequestMethod.POST)
+    public String resetPassword(HttpServletRequest request, Model model) {
+        setSessionMessage(session, userDao.resetPassword(Integer.parseInt(request.getParameter("userId"))), "Password reset", "Password reset failed");
+        return "redirect:/users";
     }
 }

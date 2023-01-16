@@ -83,6 +83,12 @@ public class UserDao {
         return template.update(sql) > 0;
     }
 
+    public Boolean resetPassword(int id) {
+        String password = Helpers.getMd5("1234");
+        String sql = "UPDATE users SET password='"+password+"' WHERE id="+id+"";
+        return template.update(sql) > 0;
+    }
+
     public boolean checkPrevoiusPassword(ChangePassword changePassword) {
         try {
             User user = findUserById(changePassword.getId());
